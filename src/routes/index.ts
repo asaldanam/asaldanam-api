@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { getVitalCheck } from './VitalCheck';
+import { checkStatus } from './Health';
 
 
-const vitalCheckRouter = Router();
-vitalCheckRouter.get('/', getVitalCheck);
+const health = Router();
+health.get('/check', checkStatus);
 
 // User-route
 // const userRouter = Router();
@@ -16,5 +16,5 @@ vitalCheckRouter.get('/', getVitalCheck);
 // Export the base-router
 const baseRouter = Router();
 // baseRouter.use('/users', userRouter);
-baseRouter.use('/vital-check', vitalCheckRouter);
+baseRouter.use('/health', health);
 export default baseRouter;
